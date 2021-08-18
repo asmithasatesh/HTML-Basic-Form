@@ -24,7 +24,7 @@
             <div>
                 <label for="email">Email</label>
                 <input type="email" id="email" required>
-                <validate class="text-error" for="email"></validate>
+                <validate class="text-error email-error" for="email"></validate>
             </div>
             <div>
                 <label for="url">URL </label>
@@ -61,22 +61,41 @@
             </div>
         </form>
         <script>
-            //Check whether Name is Proper using Regex
-            const text=document.querySelector('#name');
-            const texterror=document.querySelector('.text-error');
-            text.addEventListener('input',function()
+            //Usecase 1: Check whether Name is Proper using Regex
             {
-                let nameRegex=RegExp('^[A-Z]{1}[a-z]{2,}$');
-                if(nameRegex.test(text.value))
+                const text=document.querySelector('#name');
+                const texterror=document.querySelector('.text-error');
+                text.addEventListener('input',function()
                 {
-                    texterror.textContent="";
-                }
-                else
+                    let nameRegex=RegExp('^[A-Z]{1}[a-z]{2,}$');
+                    if(nameRegex.test(text.value))
+                    {
+                        texterror.textContent="";
+                    }
+                    else
+                    {
+                        texterror.textContent="Name is Incorrect"
+                    }
+                });
+            }
+            //Usecase 2: Check whether Email is Proper using Regex
+            {
+                const text=document.querySelector('#email');
+                const texterror=document.querySelector('.email-error');
+                text.addEventListener('input',function()
                 {
-                    texterror.textContent="Name is Incorrect"
-                }
-            });
-            
+                    let emailRegex=RegExp('^[a-zA-Z0-9]+([\.\+\-][a-zA-Z0-9]+)?@[a-zA-Z0-9]+(\.[a-zA-Z]{2,}(\.[a-zA-Z]+)?)$');
+                    if(emailRegex.test(text.value))
+                    {
+                        texterror.textContent="";
+                    }
+                    else
+                    {
+                        texterror.textContent="Incorrect Email"
+                    }
+                });
+            }
+           
             //Display Salary using range
             const salary=document.querySelector('#Salary');
             const output=document.querySelector('.Salary-output');
