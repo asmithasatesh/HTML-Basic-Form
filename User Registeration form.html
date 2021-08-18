@@ -18,7 +18,7 @@
             <div>
                 <label for="pwd">Password:</label>
                 <input type="password" id="pwd" required>
-                <validate class="text-error" for="pwd"></validate>
+                <validate class="text-error pwd-error" for="pwd"></validate>
                 
             </div>
             <div>
@@ -95,8 +95,8 @@
                     }
                 });
             }
-                //Usecase 2: Check whether Email is Proper using Regex
-                {
+            //Usecase 3: Check whether Phone number is Proper using Regex
+            {
                 const text=document.querySelector('#number');
                 const texterror=document.querySelector('.phone-error');
                 text.addEventListener('input',function()
@@ -109,6 +109,24 @@
                     else
                     {
                         texterror.textContent="Incorrect Phone-Number"
+                    }
+                });
+            }
+
+            //Usecase 4: Check whether Password is Proper using Regex
+            {
+                const text=document.querySelector('#pwd');
+                const texterror=document.querySelector('.pwd-error');
+                text.addEventListener('input',function()
+                {
+                    let pwdRegex=RegExp("[a-zA-z0-9]{8,}$");
+                    if(pwdRegex.test(text.value))
+                    {
+                        texterror.textContent="";
+                    }
+                    else
+                    {
+                        texterror.textContent="Incorrect Password"
                     }
                 });
             }
