@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>Basic Form</title>
+        <link rel="stylesheet" href="Mystylesheet.css">
+    </head>
+    <body>
+        <!--Create form for user-->
+        <form>
+            <header class="headerContainer">HTML Form Input Fields</header>
+            <div>
+                <label for="name">Name </label>
+                <input type="text" id="name" required>
+                <validate class="text-error" for="name"></validate>
+            </div>
+
+            <div>
+                <label for="pwd">password </label>
+                <input type="password" id="pwd" required>
+                <validate class="text-error" for="pwd"></validate>
+                
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+                <validate class="text-error" for="email"></validate>
+            </div>
+            <div>
+                <label for="url">URL </label>
+                <input type="url" id="url">
+                <validate class="text-error" for="url"></validate>
+            </div>
+            <div>
+                <label for="number">Number </label>
+                <input type="number" id="number" required>
+                <validate class="text-error" for="number"></validate>
+            </div>
+            <div>
+                <label for="tel">Telephone </label>
+                <input type="tel" id="tel" required>
+                <validate class="text-error" for="tel"></validate>
+            </div>
+            <div>
+                <label for="search">Search</label>
+                <input type="search" id="search" required>
+                <validate class="text-error" for="search"></validate>
+            </div>
+            <div>
+                <label for="date">Choose Date</label>
+                <input type="datetime-local" id="date" required>
+                <validate class="text-error" for="date"></validate>
+            </div>
+            <div>
+                <label for="Salary">Salary</label>
+                <input type="range" id="Salary" min="5000" max="500000" step="100" required>
+                <validate class="Salary-output" for="Salary"></validate>
+            </div>
+            <div>
+                <button>Submit</button>
+            </div>
+        </form>
+        <script>
+            //Check whether Name is Proper using Regex
+            const text=document.querySelector('#name');
+            const texterror=document.querySelector('.text-error');
+            text.addEventListener('input',function()
+            {
+                let nameRegex=RegExp('^[A-Z]{1}[a-z]{2,}$');
+                if(nameRegex.test(text.value))
+                {
+                    texterror.textContent="";
+                }
+                else
+                {
+                    texterror.textContent="Name is Incorrect"
+                }
+            });
+            
+            //Display Salary using range
+            const salary=document.querySelector('#Salary');
+            const output=document.querySelector('.Salary-output');
+            output.textContent=salary.value;
+            salary.addEventListener('input',function()
+            {
+                output.textContent=salary.value;
+            });
+        </script>
+    </body>
+</html>
