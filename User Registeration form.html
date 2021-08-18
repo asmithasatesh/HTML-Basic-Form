@@ -10,49 +10,49 @@
         <form>
             <header class="headerContainer">HTML Form Input Fields</header>
             <div>
-                <label for="name">Name </label>
+                <label for="name">Name:</label>
                 <input type="text" id="name" required>
                 <validate class="text-error" for="name"></validate>
             </div>
 
             <div>
-                <label for="pwd">password </label>
+                <label for="pwd">Password:</label>
                 <input type="password" id="pwd" required>
                 <validate class="text-error" for="pwd"></validate>
                 
             </div>
             <div>
-                <label for="email">Email</label>
+                <label for="email">Email:</label>
                 <input type="email" id="email" required>
                 <validate class="text-error email-error" for="email"></validate>
             </div>
             <div>
-                <label for="url">URL </label>
+                <label for="url">URL:</label>
                 <input type="url" id="url">
                 <validate class="text-error" for="url"></validate>
             </div>
             <div>
-                <label for="number">Number </label>
-                <input type="number" id="number" required>
-                <validate class="text-error" for="number"></validate>
+                <label for="number">Number:</label>
+                <input type="text" id="number" required>
+                <validate class="text-error phone-error" for="number"></validate>
             </div>
             <div>
-                <label for="tel">Telephone </label>
+                <label for="tel">Telephone:</label>
                 <input type="tel" id="tel" required>
                 <validate class="text-error" for="tel"></validate>
             </div>
             <div>
-                <label for="search">Search</label>
+                <label for="search">Search:</label>
                 <input type="search" id="search" required>
                 <validate class="text-error" for="search"></validate>
             </div>
             <div>
-                <label for="date">Choose Date</label>
+                <label for="date">Choose Date:</label>
                 <input type="datetime-local" id="date" required>
                 <validate class="text-error" for="date"></validate>
             </div>
             <div>
-                <label for="Salary">Salary</label>
+                <label for="Salary">Salary:</label>
                 <input type="range" id="Salary" min="5000" max="500000" step="100" required>
                 <validate class="Salary-output" for="Salary"></validate>
             </div>
@@ -92,6 +92,23 @@
                     else
                     {
                         texterror.textContent="Incorrect Email"
+                    }
+                });
+            }
+                //Usecase 2: Check whether Email is Proper using Regex
+                {
+                const text=document.querySelector('#number');
+                const texterror=document.querySelector('.phone-error');
+                text.addEventListener('input',function()
+                {
+                    let phoneRegex=RegExp('^[0-9]+\\s[0-9]{10}$');
+                    if(phoneRegex.test(text.value))
+                    {
+                        texterror.textContent="";
+                    }
+                    else
+                    {
+                        texterror.textContent="Incorrect Phone-Number"
                     }
                 });
             }
