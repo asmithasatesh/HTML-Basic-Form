@@ -3,11 +3,12 @@
     <head>
         <meta name="viewport" content="width=device-width">
         <title>Basic Form</title>
-        <link rel="stylesheet" href="Mystylesheet.css">
+        <!-- Usecase 5-->
+        <link rel="stylesheet" href="Mystylesheet.css" media="(min-width:98px) and (min-height:98px)">
     </head>
     <body>
         <!--Create form for user-->
-        <form>
+        <form class="form-class light-scheme">
             <header class="headerContainer">HTML Form Input Fields</header>
             <div>
                 <label for="name">Name:</label>
@@ -119,7 +120,7 @@
                 const texterror=document.querySelector('.pwd-error');
                 text.addEventListener('input',function()
                 {
-                    let pwdRegex=RegExp("[a-zA-z0-9]{8,}$");
+                    let pwdRegex=RegExp("(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?!.*[<>`])(?=[^.,:;'!@#$%^&*_+=|(){}[?]*[.,:;'!@#$%^&*_+=|(){}[?][^.,:;'!@#$%^&*_+=|(){}[?]*$).{8,}$");
                     if(pwdRegex.test(text.value))
                     {
                         texterror.textContent="";
@@ -130,7 +131,6 @@
                     }
                 });
             }
-           
             //Display Salary using range
             const salary=document.querySelector('#Salary');
             const output=document.querySelector('.Salary-output');
@@ -139,6 +139,16 @@
             {
                 output.textContent=salary.value;
             });
-        </script>
+
+            // Usecase 5: Create a media condition that targets viewports at least 768px wide 
+            const mediaQuery = window.matchMedia( '( max-width: 200px )' );
+            function CheckScreenSize()
+            {
+                if ( mediaQuery.matches ) {
+                alert('Screen size too small!');
+            }
+            }
+            mediaQuery.addListener(CheckScreenSize)
+         </script>
     </body>
 </html>

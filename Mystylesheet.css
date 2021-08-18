@@ -57,3 +57,16 @@ body
     max-width: 600px;
     margin-left: 10%;
 }
+/*Usecase 5: Media querie */
+@media screen and (max-width:300px) 
+{
+    @media(prefers-color-scheme: light){
+   
+      /* Styles! */
+      .form-class.light-scheme
+      { background: black;
+        color: white;
+        font-weight: bold;
+       }
+    }
+}
